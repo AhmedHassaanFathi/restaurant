@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/features/auth/cubit/login_cubit/login_cubit.dart';
 import 'package:restaurant/core/helper/app_pop_up.dart';
 import 'package:restaurant/core/helper/app_validator.dart';
-import 'package:restaurant/core/helper/my_navigator.dart';
+import 'package:restaurant/core/helper/app_navigator.dart';
 import 'package:restaurant/core/utils/app_assets.dart';
 import 'package:restaurant/core/utils/app_paddings.dart';
 import 'package:restaurant/core/widgets/custom_btn.dart';
@@ -29,7 +29,7 @@ class LoginView extends StatelessWidget {
         body: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
-              MyNavigator.goTo(
+              AppNavigator.goTo(
                 context,
                 HomeScreen(),
                 type: NavigatorType.pushAndRemoveUntil,

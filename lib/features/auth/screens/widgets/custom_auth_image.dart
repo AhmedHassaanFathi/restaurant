@@ -5,7 +5,9 @@ import 'package:restaurant/core/utils/app_assets.dart';
 class CustomAuthImage extends StatelessWidget {
   const CustomAuthImage({
     super.key,
-    this.image = const AssetImage(AppAssets.flag),
+    this.image = const AssetImage(
+      AppAssets.onboarding,
+    ),
   });
 
   final ImageProvider image;

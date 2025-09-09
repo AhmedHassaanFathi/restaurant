@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 enum NavigatorType {push, pushReplacement, pushAndRemoveUntil}
-abstract class MyNavigator
+abstract class AppNavigator
 {
   static goTo(BuildContext context, Widget screen, {NavigatorType type = NavigatorType.push})
   {

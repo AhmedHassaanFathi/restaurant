@@ -1,11 +1,12 @@
 abstract class AppAssets
 {
-  static const _assetBasePath = 'assets/images/';
-  static const String logo = '${_assetBasePath}logo.svg';
-  static const String flag = '${_assetBasePath}flag.png';
-  static const String lockIcon = '${_assetBasePath}Lock - Iconly Pro.svg';
-  static const String onboarding = '${_assetBasePath}OBJECTS012.svg';
-  static const String key = '${_assetBasePath}Password - Iconly Pro.svg';
-  static const String person = '${_assetBasePath}person.svg';
-  static const String unlockIcon = '${_assetBasePath}Unlock - Iconly Pro.svg';
+  static const _assetImagesPath = 'assets/images/';
+  static const _assetLogosPath = 'assets/logos/';
+  static const String logo = '${_assetLogosPath}logo.svg';
+  static const String yumquick = '${_assetLogosPath}yumquick.svg';
+  static const String lockIcon = '${_assetImagesPath}Lock - Iconly Pro.svg';
+  static const String onboarding = '${_assetImagesPath}OBJECTS012.svg';
+  static const String key = '${_assetImagesPath}Password - Iconly Pro.svg';
+  static const String person = '${_assetImagesPath}person.svg';
+  static const String unlockIcon = '${_assetImagesPath}Unlock - Iconly Pro.svg';
 }
