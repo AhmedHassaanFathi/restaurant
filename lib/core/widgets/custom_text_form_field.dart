@@ -7,7 +7,7 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     required this.controller,
-    required this.prefixIcon,
+    this.prefixIcon,
     this.suffixIcon,
     required this.hintText,
     this.obscureText = false,
@@ -15,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   });
 
   final TextEditingController controller;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   final Widget? suffixIcon;
   final String hintText;
   final bool obscureText;
@@ -33,10 +33,11 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         filled: true,
-        fillColor: AppColors.white,
+                                  fillColor: const Color(0xFFF6E9C8),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
+        
         hintStyle: TextStyle(
           fontWeight: AppFontWeight.extraLight,
           fontSize: 14.sp,
@@ -51,7 +52,7 @@ class CustomTextFormField extends StatelessWidget {
     );
   }
 
-  InputBorder borderBuilder({Color color = AppColors.lightGrey}) =>
+  InputBorder borderBuilder({Color color = const Color(0xFFF6E9C8)}) =>
       OutlineInputBorder(
         borderRadius: BorderRadius.circular(15.r),
         borderSide: BorderSide(color: color),

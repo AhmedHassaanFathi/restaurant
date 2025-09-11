@@ -27,7 +27,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 5), () {
 
-      AppNavigator.goTo(context, OnBoarding(), type: NavigatorType.pushReplacement);
+      AppNavigator.goTo(context, OnBoardingScreen(), type: NavigatorType.pushReplacement);
 
     });
   }

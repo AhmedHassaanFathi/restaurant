@@ -9,4 +9,7 @@ abstract class AppAssets
   static const String key = '${_assetImagesPath}Password - Iconly Pro.svg';
   static const String person = '${_assetImagesPath}person.svg';
   static const String unlockIcon = '${_assetImagesPath}Unlock - Iconly Pro.svg';
+  static const String onBoardingImage1 = '${_assetImagesPath}onBoardingImage1.png';
+  static const String onBoardingImage2 = '${_assetImagesPath}onBoardingImage2.png';
+  static const String onBoardingImage3 = '${_assetImagesPath}onBoardingImage3.png';
 }
