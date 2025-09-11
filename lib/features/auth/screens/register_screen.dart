@@ -1,24 +1,12 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant/core/helper/app_pop_up.dart';
 import 'package:restaurant/core/helper/app_validator.dart';
-import 'package:restaurant/core/utils/app_assets.dart';
 import 'package:restaurant/core/utils/app_colors.dart';
-import 'package:restaurant/core/utils/app_paddings.dart';
-import 'package:restaurant/core/utils/app_text_styles.dart';
-import 'package:restaurant/core/widgets/custom_btn.dart';
-import 'package:restaurant/core/widgets/custom_svg.dart';
-import 'package:restaurant/core/widgets/custom_text_btn.dart';
 import 'package:restaurant/core/widgets/custom_text_form_field.dart';
-import 'package:restaurant/core/widgets/image_manager/image_manager_view.dart';
 import 'package:restaurant/features/auth/cubit/register_cubit/register_cubit.dart';
 import 'package:restaurant/features/auth/cubit/register_cubit/register_state.dart';
-import 'login_screen.dart';
-import 'widgets/custom_auth_image.dart';
-import 'widgets/custom_q_text.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -52,7 +40,11 @@ class RegisterScreen extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "New Account",
-                            style: AppStyles.styleLarge28 as TextStyle?,
+                            style: TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                              // color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
@@ -87,7 +79,11 @@ class RegisterScreen extends StatelessWidget {
                                 SizedBox(height: 20.h),
                                 Text(
                                   " Full name",
-                                  style: AppStyles.styleMedium24 as TextStyle?,
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    // color: Colors.white,
+                                  ),
                                 ),
                                 CustomTextFormField(
                                   controller: cubit.emailController,
@@ -99,7 +95,11 @@ class RegisterScreen extends StatelessWidget {
                                 // Email field
                                 Text(
                                   " Email",
-                                  style: AppStyles.styleMedium24 as TextStyle?,
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    // color: Colors.white,
+                                  ),
                                 ),
                                 CustomTextFormField(
                                   controller: cubit.emailController,
@@ -107,12 +107,16 @@ class RegisterScreen extends StatelessWidget {
                                   hintText: "Enter email here",
                                   validator: AppValidator.emailValidator,
                                 ),
-                                // SizedBox(height: 10.h),
+                                SizedBox(height: 10.h),
                                 SizedBox(height: 10.h),
 
                                 Text(
                                   " Mobile Number",
-                                  style: AppStyles.styleMedium24 as TextStyle?,
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    // color: Colors.white,
+                                  ),
                                 ),
                                 CustomTextFormField(
                                   controller: cubit.phoneController,
@@ -121,7 +125,11 @@ class RegisterScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   " Password",
-                                  style: AppStyles.styleMedium24 as TextStyle?,
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    // color: Colors.white,
+                                  ),
                                 ),
                                 CustomTextFormField(
                                   controller: cubit.passwordController,
@@ -144,7 +152,11 @@ class RegisterScreen extends StatelessWidget {
 
                                 Text(
                                   " Confirm Password",
-                                  style: AppStyles.styleMedium24 as TextStyle?,
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    // color: Colors.white,
+                                  ),
                                 ),
                                 CustomTextFormField(
                                   controller: cubit.confirmPasswordController,
@@ -182,9 +194,11 @@ class RegisterScreen extends StatelessWidget {
                                       ),
                                       child: Text(
                                         "Sign Up",
-                                        style:
-                                            AppStyles.styleMedium24
-                                                as TextStyle?,
+                                        style: TextStyle(
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                          // color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),

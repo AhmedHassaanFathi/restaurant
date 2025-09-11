@@ -16,12 +16,12 @@ abstract class AppFontWeight {
 }
 
 abstract class AppStyles {
-  static TextStyle styleLarge28 = TextStyle(
+  static TextStyle  styleLarge28 = TextStyle(
     fontSize: 28.sp,
     color: AppColors.white,
     fontWeight: FontWeight.w700,
   );
-  static TextStyle styleMedium16 = TextStyle(
+  static TextStyle  styleMedium16 = TextStyle(
     fontSize: 16.sp,
     color: AppColors.grey,
     fontWeight: FontWeight.w500,
@@ -37,17 +37,17 @@ abstract class AppStyles {
     color: AppColors.black,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle styleRegular15 = TextStyle(
+    static TextStyle styleRegular15 = TextStyle(
     fontSize: 15.sp,
     color: AppColors.primary,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle styleRegular14 = TextStyle(
+  static TextStyle  styleRegular14 = TextStyle(
     fontSize: 14.sp,
     color: AppColors.white,
     fontWeight: FontWeight.w400,
   );
-  static TextStyle styleRegular12 = TextStyle(
+  static TextStyle  styleRegular12 = TextStyle(
     fontSize: 12.sp,
     color: AppColors.white,
     fontWeight: FontWeight.w400,
@@ -108,4 +108,3 @@ abstract class AppStyles {
     fontWeight: FontWeight.w500,
   );
 }
-

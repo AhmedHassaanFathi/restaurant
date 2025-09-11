@@ -5,40 +5,46 @@ import 'package:dio/dio.dart';
 import 'package:restaurant/core/network/api_helper.dart';
 import 'package:restaurant/core/network/api_response.dart';
 import 'package:restaurant/core/network/end_points.dart';
-import 'package:restaurant/features/auth/data/models/user_model.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:restaurant/features/auth/data/models/login_response_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepo {
   ApiHelper apiHelper = ApiHelper();
-    // Future<Either<String, UserModel>> login({
-    //   required String email,
-    //   required String password,
-    // }) async {
-    //   try {
-    //     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //       email: email,
-    //       password: password,
-    //     );
-    //     var userData = await FirebaseFirestore.instance
-    //         .collection('users')
-    //         .doc(credential.user!.uid)
-    //         .get();
-    //     UserModel user = UserModel.fromJson(userData.data()!);
-    //     return Right(user);
-    //   } on FirebaseAuthException catch (e) {
-    //     if (e.code == 'user-not-found') {
-    //       print('No user found for that email.');
-    //     } else if (e.code == 'wrong-password') {
-    //       print('Wrong password provided for that user.');
-    //     }
-    //     return Left(e.code);
-    //   } catch (e) {
-    //     print(e);
-    //     return Left(e.toString());
-    //   }
-    // }
+  Future<Either<String, UserModel>> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var response = await apiHelper.postRequest(
+        endPoint: EndPoints.login,
+        data: {'email': email, 'password': password},
+      );
+      if (response.status) {
+        LoginResponseModel loginResponseModel = LoginResponseModel.fromJson(
+          response.data as Map<String, dynamic>,
+        );
 
-  
+        SharedPreferences sharedPreferences =
+            await SharedPreferences.getInstance();
+        sharedPreferences.setString(
+          'access_token',
+          loginResponseModel.accessToken!,
+        );
+        sharedPreferences.setString(
+          'refresh_token',
+          loginResponseModel.refreshToken!,
+        );
+
+        return Right(loginResponseModel.user!);
+      } else {
+        return Left(response.message);
+      }
+    } catch (e) {
+      print(e);
+      return Left(ApiResponse.fromError(e).message);
+    }
+  }
 
   Future<Either<String, Unit>> register({
     required String phone,
@@ -75,38 +81,17 @@ class AuthRepo {
       print(e);
       return Left(ApiResponse.fromError(e).message);
     }
+
+    // Future<Either<String, Unit>> logout() async {
+    //   try {
+    //     await apiHelper.postRequest(
+    //       endPoint: EndPoints.logout,
+    //     );
+    //     return right(unit);
+    //   } catch (e) {
+    //     print(e);
+    //     return Left(ApiResponse.fromError(e).message);
+    //   }
+    // }
   }
-
-  Future<Either<String, Unit>> login({required String email, required String password}) async {
-    try {
-      var response = await apiHelper.postRequest(
-        endPoint: EndPoints.login,
-        data: {
-          'email': email,
-          'password': password,
-        },
-      );
-      if (response.status) {
-        return right(unit);
-      } else {
-        return left(response.message);
-      }
-    } catch (e) {
-      print(e);
-      return Left(ApiResponse.fromError(e).message);
-    }
-  }
-
-  // Future<Either<String, Unit>> logout() async {
-  //   try {
-  //     await apiHelper.postRequest(
-  //       endPoint: EndPoints.logout,
-  //     );
-  //     return right(unit);
-  //   } catch (e) {
-  //     print(e);
-  //     return Left(ApiResponse.fromError(e).message);
-  //   }
-  // }
-
 }

@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                
+
                     // --------- الجزء الأبيض (Card) ----------
                     Expanded(
                       child: Container(
@@ -82,23 +82,23 @@ class LoginScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 // Welcome text
-                                const Text(
+                                Text(
                                   "Welcome",
                                   style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 28,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.brown,
+                                    color: Colors.white,
                                   ),
                                 ),
-                                const SizedBox(height: 20),
-                
+                                SizedBox(height: 20.h),
+
                                 // Email field
                                 Text(
                                   "Email",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 28,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    // color: Colors.white,
                                   ),
                                 ),
                                 CustomTextFormField(
@@ -108,18 +108,18 @@ class LoginScreen extends StatelessWidget {
                                   validator: AppValidator.emailValidator,
                                 ),
                                 SizedBox(height: 10.h),
-                
+
                                 Text(
                                   "Password",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 28,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    // color: Colors.white,
                                   ),
                                 ),
                                 CustomTextFormField(
                                   controller: cubit.passwordController,
-                
+
                                   // prefixIcon: null,
                                   obscureText: cubit.passwordSecure,
                                   suffixIcon: IconButton(
@@ -135,19 +135,22 @@ class LoginScreen extends StatelessWidget {
                                   validator: AppValidator.passwordValidator,
                                 ),
                                 SizedBox(height: 60.h),
-                               
-                
+
                                 // Log In button
                                 Center(
                                   child: SizedBox(
-                                    width: 207,
-                                    height: 45,
+                                    width: 207.w,
+                                    height: 45.h,
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        cubit.login();
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.deepOrange,
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius: BorderRadius.circular(
+                                            30,
+                                          ),
                                         ),
                                       ),
                                       child: const Text(
