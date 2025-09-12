@@ -53,4 +53,12 @@ abstract class AppValidator
     }
     return null;
   }
+  static String? nameValidator(String? value)
+  {
+    if(value == null || value.isEmpty)
+    {
+      return 'Please enter name';
+    }
+    return null;
+  }
 }

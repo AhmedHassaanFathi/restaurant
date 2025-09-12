@@ -28,7 +28,7 @@ class CustomTextFormField extends StatelessWidget {
       style: TextStyle(
         color: AppColors.black,
         fontSize: 14.sp,
-        fontWeight: AppFontWeight.light,
+        fontWeight: FontWeight.w500,
       ),
       obscureText: obscureText,
       decoration: InputDecoration(
@@ -39,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
         hintText: hintText,
         
         hintStyle: TextStyle(
-          fontWeight: AppFontWeight.extraLight,
+          fontWeight: FontWeight.w500,
           fontSize: 14.sp,
           color: AppColors.grey,
         ),

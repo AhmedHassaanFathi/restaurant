@@ -16,7 +16,7 @@ class CustomTextBtn extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontWeight: AppFontWeight.regular,
+          fontWeight: FontWeight.w500,
           fontSize: 14.sp,
           color: AppColors.black,
         ),

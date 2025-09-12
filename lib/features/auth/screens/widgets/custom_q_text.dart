@@ -15,7 +15,7 @@ class CustomQText extends StatelessWidget {
       style: TextStyle(
         color: AppColors.black,
         fontSize: 14.sp,
-        fontWeight: AppFontWeight.extraLight,
+        // fontWeight: FontWeight.w500,
       ),
     );
   }

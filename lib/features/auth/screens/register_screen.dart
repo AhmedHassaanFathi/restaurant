@@ -7,6 +7,7 @@ import 'package:restaurant/core/utils/app_colors.dart';
 import 'package:restaurant/core/widgets/custom_text_form_field.dart';
 import 'package:restaurant/features/auth/cubit/register_cubit/register_cubit.dart';
 import 'package:restaurant/features/auth/cubit/register_cubit/register_state.dart';
+import 'package:restaurant/features/auth/screens/widgets/top_text_widget.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -32,25 +33,9 @@ class RegisterScreen extends StatelessWidget {
                 key: cubit.formKey,
                 child: Column(
                   children: [
-                    // --------- الجزء العلوي (Hello!) ----------
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 24.0),
-                      child: SizedBox(
-                        height: 161.h,
-                        child: Center(
-                          child: Text(
-                            "New Account",
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              // color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    // --------- الجزء الأبيض (Card) ----------
+                    
+                    const TopText(text: "New Account"),
+                    
                     Expanded(
                       child: Container(
                         width: double.infinity,
@@ -67,15 +52,7 @@ class RegisterScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Welcome text
-                                // const Text(
-                                //   "New Account",
-                                //   style: TextStyle(
-                                //     fontSize: 22,
-                                //     fontWeight: FontWeight.bold,
-                                //     color: Colors.brown,
-                                //   ),
-                                // ),
+                             
                                 SizedBox(height: 20.h),
                                 Text(
                                   " Full name",
@@ -86,10 +63,10 @@ class RegisterScreen extends StatelessWidget {
                                   ),
                                 ),
                                 CustomTextFormField(
-                                  controller: cubit.emailController,
+                                  controller: cubit.nameController,
                                   // prefixIcon: null,
-                                  hintText: "Enter email here",
-                                  validator: AppValidator.emailValidator,
+                                  hintText: "Enter name here",
+                                  validator: AppValidator.nameValidator,
                                 ),
                                 SizedBox(height: 10.h),
                                 // Email field
@@ -183,7 +160,9 @@ class RegisterScreen extends StatelessWidget {
                                     width: 207,
                                     height: 45,
                                     child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        cubit.onRegisterPressed();
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.deepOrange,
                                         shape: RoundedRectangleBorder(
@@ -213,144 +192,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             );
-            // return Form(
-            //   key: cubit.formKey,
-            //   child: SingleChildScrollView(
-            //     child: Column(
-            //       children: [
-            //         // CustomAuthImage(),
-            //         ImageManagerView(
-            //           onImagePicked: (image) =>
-            //               RegisterCubit.get(context).image = image,
-            //           imageBuilder: (image) {
-            //             return CustomAuthImage(
-            //               image: FileImage(File(image.path)),
-            //             );
-            //           },
-            //           defaultBuilder: CustomAuthImage(),
-            //         ),
-            //         SizedBox(height: 23.h),
-            //         Padding(
-            //           padding: AppPaddings.horizontalPadding,
-            //           child: Column(
-            //             children: [
-            //               CustomTextFormField(
-            //                 validator: AppValidator.phoneValidator,
-            //                 controller: RegisterCubit.get(
-            //                   context,
-            //                 ).phoneController,
-            //                 prefixIcon: IconButton(
-            //                   onPressed: null,
-            //                   icon: Icon(Icons.call),
-            //                 ),
-            //                 hintText: 'Phone Number',
-            //               ),
-            //               SizedBox(height: 10.h),
-            //               CustomTextFormField(
-            //                 validator: AppValidator.requiredValidator,
-            //                 controller: RegisterCubit.get(
-            //                   context,
-            //                 ).nameController,
-            //                 prefixIcon: IconButton(
-            //                   onPressed: null,
-            //                   icon: Icon(Icons.title),
-            //                 ),
-            //                 hintText: 'Name',
-            //               ),
-            //               SizedBox(height: 10.h),
-            //               CustomTextFormField(
-            //                 validator: AppValidator.emailValidator,
-            //                 controller: RegisterCubit.get(
-            //                   context,
-            //                 ).emailController,
-            //                 prefixIcon: IconButton(
-            //                   onPressed: null,
-            //                   icon: CustomSvg(path: AppAssets.person),
-            //                 ),
-            //                 hintText: 'username',
-            //               ),
-            //               SizedBox(height: 10.h),
-            //               CustomTextFormField(
-            //                 validator: AppValidator.passwordValidator,
-            //                 controller: RegisterCubit.get(
-            //                   context,
-            //                 ).passwordController,
-            //                 prefixIcon: IconButton(
-            //                   onPressed: null,
-            //                   icon: CustomSvg(path: AppAssets.key),
-            //                 ),
-            //                 hintText: 'password',
-            //                 obscureText: RegisterCubit.get(
-            //                   context,
-            //                 ).passwordSecure,
-            //                 suffixIcon: IconButton(
-            //                   onPressed: RegisterCubit.get(
-            //                     context,
-            //                   ).changePasswordVisibility,
-            //                   icon: CustomSvg(
-            //                     path: RegisterCubit.get(context).passwordSecure
-            //                         ? AppAssets.lockIcon
-            //                         : AppAssets.unlockIcon,
-            //                   ),
-            //                 ),
-            //               ),
-            //               SizedBox(height: 10.h),
-            //               CustomTextFormField(
-            //                 validator: (value) =>
-            //                     AppValidator.confirmPasswordValidator(
-            //                       value,
-            //                       cubit.passwordController.text,
-            //                     ),
-            //                 controller: RegisterCubit.get(
-            //                   context,
-            //                 ).confirmPasswordController,
-            //                 prefixIcon: IconButton(
-            //                   onPressed: null,
-            //                   icon: CustomSvg(path: AppAssets.key),
-            //                 ),
-            //                 hintText: 'confirm password',
-            //                 obscureText: RegisterCubit.get(
-            //                   context,
-            //                 ).confirmPasswordSecure,
-            //                 suffixIcon: IconButton(
-            //                   onPressed: RegisterCubit.get(
-            //                     context,
-            //                   ).changeConfirmPasswordVisibility,
-            //                   icon: CustomSvg(
-            //                     path:
-            //                         RegisterCubit.get(
-            //                           context,
-            //                         ).confirmPasswordSecure
-            //                         ? AppAssets.lockIcon
-            //                         : AppAssets.unlockIcon,
-            //                   ),
-            //                 ),
-            //               ),
-            //               SizedBox(height: 23.h),
-            //               // check if state is loading show loading
-            //               state is RegisterLoading
-            //                   ? CircularProgressIndicator()
-            //                   : CustomBtn(
-            //                       text: 'Register',
-            //                       onPressed: RegisterCubit.get(
-            //                         context,
-            //                       ).onRegisterPressed,
-            //                     ),
-            //               Row(
-            //                 mainAxisAlignment: MainAxisAlignment.center,
-            //                 children: [
-            //                   CustomQText(text: 'Already have an account?'),
-            //                   SizedBox(width: 8.w),
-            //                   CustomTextBtn(text: 'Login', onPressed: () {}),
-            //                 ],
-            //               ),
-            //             ],
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // );
+     
           },
         ),
       ),

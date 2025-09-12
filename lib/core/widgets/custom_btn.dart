@@ -27,7 +27,7 @@ class CustomBtn extends StatelessWidget {
           style: TextStyle(
             color: AppColors.white,
             fontSize: 19.sp,
-            fontWeight: AppFontWeight.light,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
