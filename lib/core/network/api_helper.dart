@@ -129,7 +129,7 @@ class ApiHelper {
     Map<String, dynamic>? queryParameters,
     bool isFormData = true,
     bool isProtected = false,
-    bool sendRefreshToken = false,
+    bool sendRefreshToken = false, required bool isAuthorized,
   }) async {
     var token;
     if (isProtected) {
